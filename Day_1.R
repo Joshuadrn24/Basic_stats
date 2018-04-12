@@ -163,7 +163,7 @@ chicks %>%
   summarise(mean_wt = mean(weight),
             median_wt = median(weight),
             skew_wt = skewness(weight), 
-            kurtosis_wt)
+            kurtosis_wt = kurtosis(weight))
 
 
 #Kurtosis = the sharpness of the peak of a frequency-distribution curve.
