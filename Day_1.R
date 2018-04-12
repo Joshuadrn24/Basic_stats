@@ -1,4 +1,7 @@
-#Joshua Adrian
 #Day_1
-#12_April_2018
 #Introduction to Biostats
+#Purpose: 1st day of the stats class
+#12_April_2018
+
+
+
