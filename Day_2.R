@@ -91,15 +91,15 @@ sa_time <- read_csv("SA_time.csv") #Tab key to give you your data paths
 
 #Edit our data
 sa_time <- sa_time %>% 
-  mutate(human = seq(1, n(), 1))  #from row 1 up to n rows adding 1
-         #geo = c(rep(c("Cape Town", "George", "PE"), times = 6), rep("Joburg", 2)))
-                  # adds human row from 1 to the number of rows 
-                                    #(20) by increments of 1 (ie 1,2,3,4...)
- 
+  mutate(human = seq(1, n(), 1)) 
 
 sa_long <- sa_time %>% 
-  group_by(human) %>% 
-  gather(key = "time_type", value = "minutes", -human)  #name of column that contains  our variables
+  gather(key = "time_type", value = "minutes", -human) #name of column that contains  our variables
+
+ #from row 1 up to n rows adding 1
+#geo = c(rep(c("Cape Town", "George", "PE"), times = 6), rep("Joburg", 2)))
+# adds human row from 1 to the number of rows 
+#(20) by increments of 1 (ie 1,2,3,4...)
 
 #don't ever alter data unless it is in code
 
@@ -145,9 +145,9 @@ ggplot(data = sa_long, aes(x = minutes))+
   geom_histogram()
 
 #oh no!
-# let's get rid of that one value
+# let's get rid of those two values
 sa_clean <- sa_long %>% 
-  filter(minutes < 10000)
+  filter(minutes <= 300)
 
 #Try again
 ggplot(data = sa_clean, aes(x = minutes))+
@@ -194,6 +194,12 @@ ggplot(data = sa_clean, aes(x = time_type, y = minutes)) +
              aes(y = time_type_mean), colour = "goldenrod")
 
 # Relationships -----------------------------------------------------------
+
+# Add geo column
+sa_time <- sa_time %>% 
+  mutate(human = seq(1, n(), 1),
+         geo = c(rep(c("Cape Town", "George", "PE"), times = 6),
+rep("Joburg", 2)))
 
 #Basic scatterplot 
 #Has quantitative data on both x and y axes
