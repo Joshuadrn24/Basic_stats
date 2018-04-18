@@ -125,7 +125,8 @@ shapiro.test(r_dat$dat)
 
 #Perhaps a visualisation?
 ggplot(data = r_one, aes(x = dat, fill = sample)) +
-  geom_histogram(binwidth = 0.4)
+  geom_histogram(binwidth = 0.4)+
+  theme_bw()
   
 
 
@@ -196,16 +197,19 @@ r_2_test <- data.frame(dat = c(rnorm(n = 30, mean = 6, sd = 1),
                     sample = c(rep("A", 30), rep("B", 30)))
 
 ggplot(data = r_2_test, aes(x = dat, fill = sample)) +
-  boxplot()+
+  geom_histogram()+
+  theme_bw()+
   facet_wrap(~sample)
 
 #Run a default/basic test
 t.test(dat ~ sample, data = r_2_test, var.equal = TRUE, alternative = "greater")
 
+t.test(dat ~ sample, data = r_2_test, var.equal = TRUE, alternative = "less")
+
 #Conclusion
 
-    #The overall weight of dogs is not significantly greater in  the Western Cape
-      #than in the Eastern Cape 
+    #The overall weight of German shepherds is not significantly greater in Cape Town
+      #than in Durban
 
 
 
