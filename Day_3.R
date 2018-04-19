@@ -50,7 +50,7 @@ descdist(y, discrete = FALSE, boot = 100)
 
 r_norm <- rnorm(n = 1000, mean = 13, sd = 1)   #generating random data, n = no.  samples, mean
 
-hist(r_norm) %>% 
+hist(r_norm) 
 descdist(r_norm, discrete = FALSE, boot = 100)
 
 #uniform data
