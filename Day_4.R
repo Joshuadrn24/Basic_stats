@@ -10,7 +10,6 @@
 #($ - chooses the column)
 
 library(tidyverse)
-library(ggplot2)
 
 # t-test ------------------------------------------------------------------
 
@@ -180,63 +179,4 @@ kruskal.test(weight ~ Diet, data = Chicks_0_21) #same as ANOVA
 #Load this for a non-parametric posthoc test
 library(pgirmess)
 kruskalmc(weight ~ Diet, data = Chicks_0_21)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
