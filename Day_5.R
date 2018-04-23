@@ -8,7 +8,7 @@
 # Load libraries ----------------------------------------------------------
 
 library(tidyverse)
-library(Rmisc)
+# library(Rmisc) # Unfortunately this overrides many dplyr functions
   #Has summarySE
 
 
@@ -42,7 +42,7 @@ snakes_summary <- snakes %>%
 
 # Test a hypothesis -------------------------------------------------------
 
-snakes.summary2 <- summarySE(data = snakes, measurevar = "openings", 
+snakes.summary2 <- Rmisc::summarySE(data = snakes, measurevar = "openings", 
                              groupvars = c("day"))
 #measurevar = measurement variable; the variable you're measuring
 #groupvars + grouping cariables
@@ -125,7 +125,7 @@ moth_summary <- moth %>%
       #locations of the traps 
 
 
-moth.summary2 <- summarySE(data = moth, measurevar = "count", 
+moth.summary2 <- Rmisc::summarySE(data = moth, measurevar = "count", 
                              groupvars = c("Location"))
 
 ggplot(data = moth, aes(x = Location, y = count)) +
